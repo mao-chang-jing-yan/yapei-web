@@ -1,17 +1,24 @@
 import 'antd/dist/antd.css';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import "./style"
 import './pages/home/index'
-import Home from "./pages/home";
-import Home1 from "./pages/home1";
+import {GlobalStyle} from "./style";
+import React, {Fragment} from "react";
+import {BrowserRouter, Route} from "react-router-dom"
+import { renderRoutes } from 'react-router-config';
+import Routers from  "./routers"
+
 
 function App() {
   return (
     <div className="App">
       {/*<Home/>*/}
-      <Home1>
+      <GlobalStyle/>
+        <BrowserRouter>
+            {renderRoutes(Routers)}
 
-      </Home1>
+        </BrowserRouter>
 
     </div>
   );

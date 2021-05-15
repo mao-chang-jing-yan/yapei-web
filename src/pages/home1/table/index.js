@@ -1,6 +1,7 @@
 import {Table} from 'antd';
-import {Component} from "react";
+import React, {Component, Fragment} from "react";
 import reqwest from 'reqwest';
+import axios from "axios";
 
 
 const columns = [
@@ -87,17 +88,24 @@ const data = [];
 //     });
 // }
 
-
-const getRandomuserParams = params => ({
-    results: params.pagination.pageSize,
-    page: params.pagination.current,
-    ...params,
-    se:"year",
-    num:10,
-    user_id:"mao"
-});
+//
+// const getRandomuserParams = params => ({
+//     results: params.pagination.pageSize,
+//     page: params.pagination.current,
+//     ...params,
+//     se:"year",
+//     num:10,
+//     user_id:"mao"
+// });
 
 class TableTest extends Component {
+    constructor(props) {
+        super(props);
+        this.state.columns = props.columns
+        this.state.url = "http://127.0.0.1:8002/api/v1" + props.uri
+        this.state.prop_params = props.params
+    }
+
     state = {
         data: [],
         pagination: {
@@ -105,11 +113,17 @@ class TableTest extends Component {
             pageSize: 10,
         },
         loading: false,
+        key:"",
+        prop_params:{},
+        url: '',
+
     };
+
     componentDidMount() {
-        const { pagination } = this.state;
-        this.fetch({ pagination });
+        const {pagination} = this.state;
+        this.fetch({pagination});
     }
+
     handleTableChange = (pagination, filters, sorter) => {
         this.fetch({
             sortField: sorter.field,
@@ -118,45 +132,58 @@ class TableTest extends Component {
             ...filters,
         });
     };
+    getRandomuserParams = params => ({
+        size: params.pagination.pageSize,
+        index: params.pagination.current,
+        ...params,
+        ...this.state.prop_params,
+        // se: "year",
+        // num: 10,
+        // user_id: "mao"
+    });
     fetch = (params = {}) => {
-        this.setState({ loading: true });
+        this.setState({loading: true});
         reqwest({
-            url: 'http://127.0.0.1:8002/api/v1/wechat/get_health_data',
+            url: this.state.url,
             method: 'get',
             type: 'json',
-            data: getRandomuserParams(params),
+            data: this.getRandomuserParams(params),
         }).then(data => {
             console.log(data);
             this.setState({
                 loading: false,
-                data: data,
+                data: data.data,
                 pagination: {
                     ...params.pagination,
-                    total: data.len,
+                    total: data.num-1,
                     // 200 is mock data, you should read it from server
                     // total: data.totalCount,
                 },
             });
         });
     };
+
+
     render() {
-        const { data, pagination, loading } = this.state;
+        const {data, pagination, loading, columns, key} = this.state;
         return (
+            <Fragment>
                 <Table
                     columns={columns}
                     dataSource={data}
 
-                    rowKey={record => record.time}
+                    rowKey={record => record[key]}
                     pagination={pagination}
                     loading={loading}
                     onChange={this.handleTableChange}
 
                     scroll={{x: 500, y: 500}}
                 />
+            </Fragment>
+
         )
     }
 }
-
 
 
 // ReactDOM.render(

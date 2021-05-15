@@ -1,6 +1,5 @@
 import React, {Component, Fragment} from 'react';
 import store from "../../store"
-import {globalData} from "../../globaldata/globaldata";
 import {connect} from "react-redux";
 import mapDispatchToProps from "react-redux/lib/connect/mapDispatchToProps";
 import {CreateChangeAction} from "../../store/actionCreators";
