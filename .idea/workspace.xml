@@ -19,43 +19,33 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78241dba-5e15-4d71-9758-dd48555dc2f4" name="Default Changelist" comment="init1">
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/rej.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/store/actionCreators.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/store/actionTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/store/reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/table/tab.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/user/detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/user/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/user/store/actionCreators.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/user/store/actionTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/user/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/user/store/reducer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/home1/user/userIndex.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/style.js" afterDir="false" />
+    <list default="true" id="78241dba-5e15-4d71-9758-dd48555dc2f4" name="Default Changelist" comment="init2">
+      <change afterPath="$PROJECT_DIR$/src/component/noticefy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home1/axio.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home1/harddevice/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home1/user/createUser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home1/webdevice/deviceIndex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home1/webdevice/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home1/webdevice/store/actionCreators.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home1/webdevice/store/actionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home1/webdevice/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/home1/webdevice/store/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home1/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home1/table/er.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/table/er.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/home1/table/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/table/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actionCreators.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actionTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home1/inde.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/inde.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home1/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home1/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home1/user/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/user/detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home1/user/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/user/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home1/user/store/actionCreators.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/user/store/actionCreators.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home1/user/store/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/user/store/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/home1/user/store/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/home1/user/store/reducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +75,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/home1/store" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages/home1/webdevice/store" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -96,13 +86,14 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/pages/home1/store" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/pages/home1/store" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/home1/webdevice/store" />
+      <recent name="$PROJECT_DIR$/src/pages/home1/store" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -138,7 +129,10 @@
       <workItem from="1620974023315" duration="27119000" />
       <workItem from="1621017585356" duration="5416000" />
       <workItem from="1621025627419" duration="19429000" />
-      <workItem from="1621081663076" duration="689000" />
+      <workItem from="1621081663076" duration="855000" />
+      <workItem from="1621082972466" duration="20820000" />
+      <workItem from="1621152416743" duration="956000" />
+      <workItem from="1621167225433" duration="7581000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1620934217229</created>
@@ -154,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620934238767</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="init2">
+      <created>1621082848323</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1621082848323</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,7 +172,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -187,38 +188,39 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="init1" />
-    <option name="LAST_COMMIT_MESSAGE" value="init1" />
+    <MESSAGE value="init2" />
+    <option name="LAST_COMMIT_MESSAGE" value="init2" />
   </component>
   <component name="WindowStateProjectService">
     <state x="585" y="266" key="Github.ShareDialog" timestamp="1620934176948">
       <screen x="0" y="25" width="1440" height="800" />
     </state>
     <state x="585" y="266" key="Github.ShareDialog/0.25.1440.800@0.25.1440.800" timestamp="1620934176948" />
-    <state width="1419" height="243" key="GridCell.Tab.0.bottom" timestamp="1621080342931">
+    <state width="1419" height="418" key="GridCell.Tab.0.bottom" timestamp="1621184645746">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="243" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1621080342931" />
+    <state width="1419" height="418" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1621184645746" />
     <state width="1419" height="202" key="GridCell.Tab.0.bottom/0.25.1440.800@0.25.1440.800" timestamp="1620979434164" />
     <state width="1419" height="202" key="GridCell.Tab.0.bottom/0.25.1440.804@0.25.1440.804" timestamp="1620982901089" />
     <state width="1419" height="204" key="GridCell.Tab.0.bottom/0.25.1440.807@0.25.1440.807" timestamp="1620933110495" />
-    <state width="1419" height="243" key="GridCell.Tab.0.center" timestamp="1621080342929">
+    <state width="1419" height="418" key="GridCell.Tab.0.center" timestamp="1621184645745">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="243" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1621080342929" />
+    <state width="1419" height="418" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1621184645745" />
     <state width="1419" height="202" key="GridCell.Tab.0.center/0.25.1440.800@0.25.1440.800" timestamp="1620979434163" />
     <state width="1419" height="202" key="GridCell.Tab.0.center/0.25.1440.804@0.25.1440.804" timestamp="1620982901088" />
     <state width="1419" height="204" key="GridCell.Tab.0.center/0.25.1440.807@0.25.1440.807" timestamp="1620933110495" />
-    <state width="1419" height="243" key="GridCell.Tab.0.left" timestamp="1621080342925">
+    <state width="1419" height="418" key="GridCell.Tab.0.left" timestamp="1621184645744">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="243" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1621080342925" />
+    <state width="1419" height="418" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1621184645744" />
     <state width="1419" height="202" key="GridCell.Tab.0.left/0.25.1440.800@0.25.1440.800" timestamp="1620979434163" />
     <state width="1419" height="202" key="GridCell.Tab.0.left/0.25.1440.804@0.25.1440.804" timestamp="1620982901087" />
     <state width="1419" height="204" key="GridCell.Tab.0.left/0.25.1440.807@0.25.1440.807" timestamp="1620933110494" />
-    <state width="1419" height="243" key="GridCell.Tab.0.right" timestamp="1621080342930">
+    <state width="1419" height="418" key="GridCell.Tab.0.right" timestamp="1621184645746">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1419" height="243" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1621080342930" />
+    <state width="1419" height="418" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1621184645746" />
     <state width="1419" height="202" key="GridCell.Tab.0.right/0.25.1440.800@0.25.1440.800" timestamp="1620979434164" />
     <state width="1419" height="202" key="GridCell.Tab.0.right/0.25.1440.804@0.25.1440.804" timestamp="1620982901089" />
     <state width="1419" height="204" key="GridCell.Tab.0.right/0.25.1440.807@0.25.1440.807" timestamp="1620933110495" />
@@ -226,9 +228,10 @@
       <screen x="0" y="25" width="1440" height="807" />
     </state>
     <state x="229" y="66" key="SettingsEditor/0.25.1440.807@0.25.1440.807" timestamp="1620892852178" />
-    <state x="320" y="162" key="Vcs.Push.Dialog.v2" timestamp="1620934267425">
-      <screen x="0" y="25" width="1440" height="800" />
+    <state x="320" y="154" key="Vcs.Push.Dialog.v2" timestamp="1621082919381">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state x="320" y="154" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1621082919381" />
     <state x="320" y="162" key="Vcs.Push.Dialog.v2/0.25.1440.800@0.25.1440.800" timestamp="1620934267425" />
   </component>
 </project>

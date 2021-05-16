@@ -1,35 +1,29 @@
 import React, {Component, Fragment, PureComponent} from "react";
-import {Row, Col, Divider, Input, Button, Select} from 'antd';
+import {Row, Col, Divider, Input, Button, Select, Popconfirm, Drawer, DatePicker} from 'antd';
 
 import {connect} from "react-redux";
 import {actionCreators} from "./store";
 import {Table} from "antd";
 import UserDetail from "./detail";
-import {changeVisible} from "./store/actionCreators";
+import CreateUser from "./createUser";
 
+// const { RangePicker } = DatePicker;
 
 const searchT = (props) => {
-    const typeOption = [
-        {key:"-2",value:"所有用户"},
-        {key:"0",value:"普通用户"},
-        {key:"1",value:"管理员"},
-        {key:"2",value:"后台操作员"},
-        // {key:"3",value:""},
-    ]
-    const stateOption = [
-        {key:"-1",value:"不存在"},
-        {key:"0",value:"已删除"},
-        {key:"1",value:"正常"},
-    ]
+    const typeOption = props.typeOption
+    const stateOption = props.stateOption
     const Option = Select.Option;
+    const handleChange = (e,e1)=>{
+        console.log("v1  ",e.target.value)
+        console.log("v2",e1)
+    }
 
     return (
         <Fragment>
 
 
-
             <Row justify="space-around">
-                <Col span={4}>
+                <Col span={5}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
                             <div>姓名</div>
@@ -43,7 +37,7 @@ const searchT = (props) => {
                         </Col>
                     </Row>
                 </Col>
-                <Col span={4}>
+                <Col span={6}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
                             <div>电话</div>
@@ -57,7 +51,7 @@ const searchT = (props) => {
                         </Col>
                     </Row>
                 </Col>
-                <Col span={4}>
+                <Col span={5}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
                             <div>状态</div>
@@ -65,10 +59,10 @@ const searchT = (props) => {
                         <Col span={18}>
                             <Select
                                 showSearch
-                                style={{ width: "100%" }}
+                                style={{width: "100%"}}
                                 placeholder="Select a person"
                                 optionFilterProp="children"
-                                onChange={(value)=>props.changeOp("state", value)}
+                                onChange={(value) => props.changeOp("state", value)}
                                 // onFocus={onFocus}
                                 // onBlur={onBlur}
                                 // onSearch={onSearch}
@@ -77,8 +71,8 @@ const searchT = (props) => {
                                 }
                             >
                                 {
-                                    stateOption.map((item, index)=>{
-                                        return(
+                                    stateOption.map((item, index) => {
+                                        return (
                                             <Option value={item.key} key={item.key + index}>{item.value}</Option>
                                         )
                                     })
@@ -90,7 +84,7 @@ const searchT = (props) => {
                         </Col>
                     </Row>
                 </Col>
-                <Col span={4}>
+                <Col span={5}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
                             <div>类型</div>
@@ -98,10 +92,10 @@ const searchT = (props) => {
                         <Col span={18}>
                             <Select
                                 showSearch
-                                style={{ width: "100%" }}
+                                style={{width: "100%"}}
                                 placeholder="Select a person"
                                 optionFilterProp="children"
-                                onChange={(value)=>props.changeOp("type", value)}
+                                onChange={(value) => props.changeOp("type", value)}
                                 // onFocus={onFocus}
                                 // onBlur={onBlur}
                                 // onSearch={onSearch}
@@ -110,8 +104,8 @@ const searchT = (props) => {
                                 }
                             >
                                 {
-                                    typeOption.map((item, index)=>{
-                                        return(
+                                    typeOption.map((item, index) => {
+                                        return (
                                             <Option value={item.key} key={item.key + index}>{item.value}</Option>
                                         )
                                     })
@@ -123,67 +117,65 @@ const searchT = (props) => {
                         </Col>
                     </Row>
                 </Col>
-                <Col span={4}>
-                    <Row justify={"space-between"} align="middle">
-                        <Col span={5}>
-                            <div>233</div>
-                        </Col>
-                        <Col span={18}>
-                            <Input
-                                placeholder="Basic usage"
-                                value={props.searchParams.name}
-                                onChange={(e) => props.changeSearchParams(e, "name")}
-                            />
-                        </Col>
-                    </Row>
+                <Col span={3}>
+
+                    {/*<Button type="primary" style={{width:"70%"}} onClick={() => props.search(props.searchParams)}>新增用户</Button>*/}
+                    <CreateUser/>
+
                 </Col>
 
             </Row>
+            <div style={{marginTop:"10px"}}/>
 
-            <Row justify="space-around">
-                <Col span={4}>
+            <Row justify="space-around" >
+                <Col span={5}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
-                            <div>yuzhou</div>
+                            <div>用户名</div>
                         </Col>
                         <Col span={18}>
-                            <Input placeholder="Basic usage"/>
+                            <Input
+                                onChange={(e) => props.changeSearchParams(e, "user_id")}
+                                placeholder="Basic usage"/>
                         </Col>
                     </Row>
                 </Col>
-                <Col span={4}>
-                    <Row justify={"space-between"} align="middle">
-                        <Col span={5}>
-                            <div>电话</div>
+                <Col span={6}>
+                    <Row justify={"space-around"} align="middle">
+                        <Col span={6}>
+                            <div>创建时间</div>
                         </Col>
                         <Col span={18}>
-                            <Input placeholder="Basic usage"/>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col span={4}>
-                    <Row justify={"space-between"} align="middle">
-                        <Col span={5}>
-                            <div>状态</div>
-                        </Col>
-                        <Col span={18}>
-                            <Input placeholder="Basic usage"/>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col span={4}>
-                    <Row justify={"space-between"} align="middle">
-                        <Col span={5}>
-                            <div>类型</div>
-                        </Col>
-                        <Col span={18}>
-                            <Input placeholder="Basic usage"/>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col span={4}>
+                            <DatePicker
+                                onChange={(e, value)=>props.changeDate("create_at", value)}
+                            />
 
-                    <Button type="primary" onClick={()=>props.search(props.searchParams)}>搜索</Button>
+                        </Col>
+                    </Row>
+                </Col>
+                <Col span={5}>
+                    {/*<Row justify={"space-between"} align="middle">*/}
+                    {/*    <Col span={5}>*/}
+                    {/*        <div>状态</div>*/}
+                    {/*    </Col>*/}
+                    {/*    <Col span={18}>*/}
+                    {/*        <Input placeholder="Basic usage"/>*/}
+                    {/*    </Col>*/}
+                    {/*</Row>*/}
+                </Col>
+                <Col span={5}>
+                    {/*<Row justify={"space-between"} align="middle">*/}
+                    {/*    <Col span={5}>*/}
+                    {/*        <div>类型</div>*/}
+                    {/*    </Col>*/}
+                    {/*    <Col span={18}>*/}
+                    {/*        <Input placeholder="Basic usage"/>*/}
+                    {/*    </Col>*/}
+                    {/*</Row>*/}
+                </Col>
+                <Col span={3}>
+
+                    <Button type="primary" style={{width:"70%"}} onClick={() => props.search(props.searchParams)}>搜索</Button>
 
                 </Col>
 
@@ -205,26 +197,84 @@ class UserTable extends Component {
         }
     }
 
+
     columns = [
-        {title: 'user_id', dataIndex: 'user_id', fixed: "left", key: '5'},
-        {title: 'name', dataIndex: 'name', fixed: "left", key: '1'},
+        {title: 'name', dataIndex: 'name', fixed: "left", width: 160, key: '1'},
+        {title: 'user_id', dataIndex: 'user_id', key: '5'},
 
         {title: 'id', dataIndex: 'id', key: '0'},
         {title: 'password', dataIndex: 'password', key: '2'},
         {title: 'phone', dataIndex: 'phone', key: '3'},
-        {title: 'state', dataIndex: 'state', key: '4'},
+        {
+            title: 'state', width: 100, key: '4',
+            render: (e) => {
+
+                for (let i = 0; i < this.props.stateOption.length; i++) {
+                    if (this.props.stateOption[i].key.toString() === e.state.toString()) {
+                        return this.props.stateOption[i].value
+                    }
+                }
+                return "未知状态"
+
+
+            }
+
+
+        },
+        {
+            title: 'type', width: 100, key: '5',
+            render: (e) => {
+
+                for (let i = 0; i < this.props.typeOption.length; i++) {
+                    if (this.props.typeOption[i].key.toString() === e.type.toString()) {
+                        return this.props.typeOption[i].value
+                    }
+                }
+                return "未知类型"
+
+            }
+
+        },
         {title: 'create_at', dataIndex: 'create_at', key: '6'},
         {title: 'update_at', dataIndex: 'update_at', key: '7'},
         {
-            title: '操作', key: '8', fixed: "right", width: 300, render: (e) => {
+            title: '操作', key: '8', fixed: "right", width: 160, render: (e) => {
                 // const time1 = e["create_at"];
                 // const date =  new Date(time1)
 
 
                 return (
-                    <div onClick={()=>this.props.openBox(e["user_id"])}>
-                        "23"
-                    </div>
+                    <Row justify={"space-between"} align="middle">
+                        <Col span={12}>
+
+                            <Popconfirm
+                                title="Are you sure to delete this task?"
+                                onConfirm={() => {
+                                    this.props.deleteUser(e.user_id)
+                                }}
+                                // onCancel={cancel}
+                                okText="Yes"
+                                cancelText="No"
+                            >
+                                <Button
+                                    size={"small"}
+                                    type="primary"
+                                    danger
+                                >
+                                    删除
+                                </Button>
+                            </Popconfirm>
+                        </Col>
+                        <Col span={12}>
+                            <Button
+                                size={"small"}
+                                type="primary"
+                                onClick={() => this.props.openBox(e["user_id"])}
+                            >详细信息</Button>
+
+
+                        </Col>
+                    </Row>
                 )
             }
         },
@@ -253,8 +303,9 @@ class UserTable extends Component {
                     // loading={this.props.loading}
                     onChange={this.props.handleTableChange}
 
-                    scroll={{x: 1500, y: 500}}
+                    scroll={{x: 2500, y: 500}}
                 />
+                {/*<UserDetail/>*/}
 
             </Fragment>
         )
@@ -273,16 +324,25 @@ const mapStateToProps = (state) => {
         // currentPageUrl: state.get(["user", "baseUrl"]).toJS(),
         searchParams: userData.get("searchParams").toJS(),
         tableData: userData.get("tableData").toJS(),
-        pagination: userData.get("pagination").toJS()
+        pagination: userData.get("pagination").toJS(),
+        typeOption: userData.get("typeOption").toJS(),
+        stateOption: userData.get("stateOption").toJS()
     }
 }
 const mapDispatchToProp = (dispatch) => {
     return {
-        openBox(user_id){
-            dispatch(actionCreators.changeVisible(true))
-            dispatch(actionCreators.getUserInfo(user_id))
+        changeDate(key, value){
+            dispatch(actionCreators.changeSearchParams(key, value))
         },
-        changeOp(key, value){
+        deleteUser(user_id) {
+            dispatch(actionCreators.deleteUserInfo(user_id))
+        },
+        openBox(user_id) {
+            dispatch(actionCreators.getUserInfo(user_id))
+            dispatch(actionCreators.changeVisible(true))
+            dispatch(actionCreators.getDeviceInfo(user_id, 0,100))
+        },
+        changeOp(key, value) {
             // console.log(e)
             dispatch(actionCreators.changeSearchParams(key, value))
         },

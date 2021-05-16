@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import RegistrationForm from "./rej";
+import {actionCreators} from "./user/store";
 
 class Login extends Component{
 
@@ -11,12 +12,18 @@ class Login extends Component{
     render() {
         const onFinish = (values) => {
             console.log('Received values of form: ', values);
+            this.props.login(values)
         };
 
-
+        if(this.props.myInfo.isLogin) {
+            // window.location.href="/"
+            this.props.history.length = []
+            this.props.history.push('/')
+        }
 
         return (
             <Fragment>
+
                 <Form
                     name="normal_login"
                     className="login-form"
@@ -45,10 +52,15 @@ class Login extends Component{
                             },
                         ]}
                     >
-                        <Input
-                            prefix={<LockOutlined className="site-form-item-icon" />}
+                        {/*<Input*/}
+                        {/*    prefix={<LockOutlined className="site-form-item-icon" />}*/}
+                        {/*    type="password"*/}
+                        {/*    placeholder="Password"*/}
+                        {/*/>*/}
+                        <Input.Password
                             type="password"
                             placeholder="Password"
+                            prefix={<LockOutlined className="site-form-item-icon" />}
                         />
                     </Form.Item>
                     <Form.Item>
@@ -69,19 +81,21 @@ class Login extends Component{
                     </Form.Item>
                 </Form>
 
-                <RegistrationForm/>
+                {/*<RegistrationForm/>*/}
             </Fragment>
         );
     }
 }
 const mapStateToProps = (state)=>{
     return{
-        // isLogin: state.getIn(["user", "isLogin"])
+        myInfo: state.getIn(["user", "myInfo"]).toJS(),
     }
 }
 const mapDispatchToProp = (dispatch)=>{
     return{
-
+        login(params){
+            dispatch(actionCreators.login(params))
+        }
     }
 }
 

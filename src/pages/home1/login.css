@@ -1,12 +1,8 @@
-#components-form-demo-normal-login .login-form {
-    max-width: 300px;
-}
-#components-form-demo-normal-login .login-form-forgot {
-    float: right;
-}
-#components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
-    float: left;
-}
-#components-form-demo-normal-login .login-form-button {
-    width: 100%;
+.login-form{
+    width: 25%;
+    /*background: #61dafb;*/
+    border: 1px solid #d7d7d7;
+    padding: 50px 30px 20px 30px;
+    margin: 0 auto;
+    margin-top: 100px;
 }

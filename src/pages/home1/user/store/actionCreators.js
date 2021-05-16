@@ -24,6 +24,7 @@
 import axios from "axios";
 import {constants} from "./index";
 import {globalData} from "../../../../globaldata/globaldata";
+import * as nostify from "../../../../component/noticefy";
 
 export const changeInputValue = (e) => {
 
@@ -79,6 +80,7 @@ export const getListData = (index, size, params) => {
             }
         ).catch(err => {
             console.log("err", err)
+            nostify.error(err.toString())
         })
     }
 }
@@ -100,27 +102,120 @@ export const getUserInfo = (user_id) => {
     const url = globalData.baseURL + "/web/user/get?id=" + user_id
     return (dispatch) => {
         axios.get(url).then(res => {
-                console.log("=  =",res.data)
-            if (res.data!==undefined){
-                dispatch(changeUserInfo(res.data))
-            }
+                console.log("=  =", res.data)
+                if (res.data !== undefined) {
+                    dispatch(changeUserInfo(res.data))
+                }
             }
         ).catch(err => {
-            console.log("err", err)
+            nostify.error(err.toString())
         })
     }
 }
 export const updateUserInfo = (user_id, params) => {
-    const url = globalData.baseURL + "/web/user/update/:id=" + user_id
+    const url = globalData.baseURL + "/web/user/update?id=" + user_id
     return (dispatch) => {
         axios.patch(url, {
             ...params
         }).then(res => {
                 console.log(res.data.data)
                 dispatch(changeUserInfo(res.data))
+                nostify.success("更新成功")
             }
         ).catch(err => {
-            console.log("err", err)
+            nostify.error(err.toString())
         })
     }
 }
+
+export const deleteUserInfo = (user_id) => {
+    const url = globalData.baseURL + "/web/user/delete?id=" + user_id
+    return (dispatch) => {
+        axios.patch(url).then(res => {
+                console.log(res.data)
+                // dispatch(changeUserInfo(res.data))
+                dispatch(changeVisible(false))
+                dispatch(getListData(1, 10, {}))
+                nostify.success("删除成功")
+
+            }
+        ).catch(err => {
+            nostify.error(err.toString())
+
+        })
+    }
+}
+
+export const getDeviceInfo = (user_id, index,size)=>{
+    const url = globalData.baseURL + "/web/user/get_device_info?user_id="
+        + user_id + "&index="+index + "&size="+size
+
+    return (dispatch)=>{
+        axios.get(url,{
+            index:index,
+            size:size
+        }).then(res=>{
+
+            dispatch(changeDeviceInfo(res.data))
+        }).catch(err=>{
+            nostify.error(err.toString())
+        })
+    }
+}
+
+export const changeDeviceInfo = (data)=>{
+    return{
+        type:constants.CHANGE_DEVICE_INFO,
+        value:data
+    }
+}
+
+export const login = (params) => {
+    const url = globalData.baseURL + "/web/login"
+    return (dispatch) => {
+        axios.post(url, {
+            ...params
+        }).then(res => {
+                console.log(res.data)
+                // dispatch(changeUserInfo(res.data))
+                // dispatch(changeVisible(false))
+                // dispatch(getListData(1, 10, {}))
+                const token =  res.data.token
+                if (token!==undefined && token!==null){
+                    dispatch(changeMyInfo(true,true, token))
+                }
+            }
+        ).catch(err => {
+            nostify.error(err.toString())
+
+        })
+    }
+}
+
+export const changeMyInfo = (isLogin,isRegister, token) => {
+    return {
+        type: constants.LOGIN,
+        value: {isLogin: isLogin,isRegister:isRegister, token: token}
+    }
+}
+
+export const register = (params)=>{
+    const url = globalData.baseURL + "/web/register"
+    return (dispatch) => {
+        axios.post(url, {
+            ...params
+        }).then(res => {
+                console.log(res.data)
+                // dispatch(changeUserInfo(res.data))
+                // dispatch(changeVisible(false))
+                // dispatch(getListData(1, 10, {}))
+                // const token =  res.data.token
+                // dispatch(changeMyInfo(true, token))
+            }
+        ).catch(err => {
+            nostify.error(err.toString())
+
+        })
+    }
+}
+
