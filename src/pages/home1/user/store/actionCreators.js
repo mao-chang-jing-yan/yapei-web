@@ -135,7 +135,7 @@ export const deleteUserInfo = (user_id) => {
                 console.log(res.data)
                 // dispatch(changeUserInfo(res.data))
                 dispatch(changeVisible(false))
-                dispatch(getListData(1, 10, {}))
+                // dispatch(getListData(1, 10, {}))
                 nostify.success("删除成功")
 
             }

@@ -6,6 +6,7 @@ import {actionCreators} from "./store";
 import {Table} from "antd";
 import UserDetail from "./detail";
 import CreateUser from "./createUser";
+import {dateFormat} from "../../../component/dateFormat";
 
 // const { RangePicker } = DatePicker;
 
@@ -147,6 +148,7 @@ const searchT = (props) => {
                         </Col>
                         <Col span={18}>
                             <DatePicker
+                                style={{width:"100%"}}
                                 onChange={(e, value)=>props.changeDate("create_at", value)}
                             />
 
@@ -235,8 +237,8 @@ class UserTable extends Component {
             }
 
         },
-        {title: 'create_at', dataIndex: 'create_at', key: '6'},
-        {title: 'update_at', dataIndex: 'update_at', key: '7'},
+        {title: '创建时间', key: '5',render: (e) => {return (<div>{dateFormat(e.create_at)}</div>)}},
+        {title: '更新时间', key: '5',render: (e) => {return (<div>{dateFormat(e.update_at)}</div>)}},
         {
             title: '操作', key: '8', fixed: "right", width: 160, render: (e) => {
                 // const time1 = e["create_at"];
@@ -251,6 +253,7 @@ class UserTable extends Component {
                                 title="Are you sure to delete this task?"
                                 onConfirm={() => {
                                     this.props.deleteUser(e.user_id)
+                                    this.props.search(this.props.searchParams)
                                 }}
                                 // onCancel={cancel}
                                 okText="Yes"

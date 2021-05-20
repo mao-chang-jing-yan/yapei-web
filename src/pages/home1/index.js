@@ -9,6 +9,7 @@ import Table1 from "./table/er";
 import UserTable from "./user";
 import {Link, withRouter} from "react-router-dom";
 import {renderRoutes} from 'react-router-config'
+import {render} from "@testing-library/react";
 
 
 const {SubMenu} = Menu;
@@ -113,8 +114,13 @@ class Home1 extends PureComponent {
                             {
                                 route.children.map((item, index) => {
                                     const path = item.path
+                                    const icons = [
+                                        <UserOutlined/>,
+                                        <UserOutlined/>,
+                                    ]
+
                                     return (
-                                        <SubMenu key={path} icon={<UserOutlined/>} title={item.title}>
+                                        <SubMenu key={path} icon= {icons[index]} title={item.title}>
                                             {
                                                 item.children.map((item1, index1)=>{
                                                     return(

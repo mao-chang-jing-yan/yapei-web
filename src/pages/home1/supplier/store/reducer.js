@@ -13,14 +13,12 @@ const defaultState = fromJS({
     deviceInfo: {},
 
     typeOption: [
-        {key: "-2", value: "所有"},
+        {key: "-2", value: "所有用户"},
 
-        // {key:"3",value:""},
     ],
     stateOption: [
         {key: "-1", value: "不存在"},
-        {key: "0", value: "已删除"},
-        {key: "1", value: "正常"},
+
     ],
 })
 
@@ -30,7 +28,7 @@ export default (state = defaultState, action) => {
 
     switch (action.type) {
 
-        case constants.CHANGE_WEB_DEVICE_LIST:
+        case constants.CHANGE_SUPPLIER_LIST:
             return state.set("tableData", fromJS(action.value))
         case constants.CHANGE_SEARCH_PARAMS:
             const searchParams = state.get("searchParams").toJS()

@@ -1,15 +1,17 @@
 import React, {Component, Fragment} from "react";
 import {connect} from "react-redux";
-import {Button, Col, Divider, Input, Row, Select, Table} from "antd";
+import {Button, Col, DatePicker, Divider, Input, Row, Select, Table} from "antd";
 import {actionCreators} from "./store";
+import {dateFormat} from "../../../component/dateFormat";
+import CreateUser from "../user/createUser";
 
 const sensorTable = (props, data) => {
     const columns = [
         {title: '传感器ID', dataIndex: 'device_id', fixed: "left", width: 160, key: '1'},
         {title: '传感器类型', dataIndex: 'device_type', key: '5'},
         {title: '设备状态', dataIndex: 'device_state', key: '5'},
-        {title: '创建时间', dataIndex: 'create_at', key: '5'},
-        {title: '更新时间', dataIndex: 'update_at', key: '5'},
+        {title: '创建时间', key: '5',render: (e) => {return (<div>{dateFormat(e.create_at)}</div>)}},
+        {title: '更新时间', key: '5',render: (e) => {return (<div>{dateFormat(e.update_at)}</div>)}},
         {
             title: '操作', key: '5', render: (e) => {
                 return (
@@ -43,8 +45,8 @@ const hardDeviceTable = (props, data) => {
         {title: '硬件设备ID', dataIndex: 'device_id', fixed: "left", width: 160, key: '1'},
         {title: '设备类型', dataIndex: 'device_type', key: '5'},
         {title: '设备状态', dataIndex: 'device_state', key: '5'},
-        {title: '创建时间', dataIndex: 'create_at', key: '5'},
-        {title: '更新时间', dataIndex: 'update_at', key: '5'},
+        {title: '创建时间', key: '5',render: (e) => {return (<div>{dateFormat(e.create_at)}</div>)}},
+        {title: '更新时间', key: '5',render: (e) => {return (<div>{dateFormat(e.update_at)}</div>)}},
         {
             title: '操作', key: '5', render: (e) => {
                 return (
@@ -81,8 +83,9 @@ class WebDevice extends Component {
         {title: '背夹ID', dataIndex: 'device_id', fixed: "left", width: 160, key: '1'},
         {title: '设备类型', dataIndex: 'device_type', key: '5'},
         {title: '设备状态', dataIndex: 'device_state', key: '5'},
-        {title: '创建时间', dataIndex: 'create_at', key: '5'},
-        {title: '更新时间', dataIndex: 'update_at', key: '5'},
+        {title: 'client_id', dataIndex: 'client_id', key: '5'},
+        {title: '创建时间', key: '5',render: (e) => {return (<div>{dateFormat(e.create_at)}</div>)}},
+        {title: '更新时间', key: '5',render: (e) => {return (<div>{dateFormat(e.update_at)}</div>)}},
         {
             title: '操作', key: '5', render: (e) => {
                 return (
@@ -142,6 +145,9 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProp = (dispatch) => {
     return {
+        changeDate(key, value){
+            dispatch(actionCreators.changeSearchParams(key, value))
+        },
         handleTableChange(pagination1, filters, sorter) {
             dispatch(actionCreators.getWebDeviceList(pagination1.current, pagination1.pageSize, {
                 sortField: sorter.field,
@@ -180,35 +186,35 @@ const searchT = (props) => {
 
 
             <Row justify="space-around">
-                <Col span={4}>
+                <Col span={5}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
-                            <div>设备ID</div>
+                            <div>名称</div>
                         </Col>
                         <Col span={18}>
                             <Input
-                                placeholder="Basic usage"
-                                value={props.searchParams.name}
-                                onChange={(e) => props.changeSearchParams(e, "name")}
+                                placeholder="ram_name"
+                                value={props.searchParams.ram_name}
+                                onChange={(e) => props.changeSearchParams(e, "ram_name")}
                             />
                         </Col>
                     </Row>
                 </Col>
-                <Col span={4}>
+                <Col span={6}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
-                            <div>clientid</div>
+                            <div>组名</div>
                         </Col>
                         <Col span={18}>
                             <Input
-                                placeholder="Basic usage"
-                                value={props.searchParams.phone}
-                                onChange={(e) => props.changeSearchParams(e, "phone")}
+                                placeholder="分组"
+                                value={props.searchParams.group_name}
+                                onChange={(e) => props.changeSearchParams(e, "group_name")}
                             />
                         </Col>
                     </Row>
                 </Col>
-                <Col span={4}>
+                <Col span={5}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
                             <div>状态</div>
@@ -241,100 +247,81 @@ const searchT = (props) => {
                         </Col>
                     </Row>
                 </Col>
-                <Col span={4}>
+                <Col span={5}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
                             <div>类型</div>
                         </Col>
                         <Col span={18}>
-                            <Select
-                                showSearch
-                                style={{width: "100%"}}
-                                placeholder="Select a person"
-                                optionFilterProp="children"
-                                onChange={(value) => props.changeOp("type", value)}
-                                // onFocus={onFocus}
-                                // onBlur={onBlur}
-                                // onSearch={onSearch}
-                                filterOption={(input, option) =>
-                                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                }
-                            >
-                                {
-                                    typeOption.map((item, index) => {
-                                        return (
-                                            <Option value={item.key} key={item.key + index}>{item.value}</Option>
-                                        )
-                                    })
-                                }
-                                {/*<Option value="jack">Jack</Option>*/}
-                                {/*<Option value="lucy">Lucy</Option>*/}
-                                {/*<Option value="tom">Tom</Option>*/}
-                            </Select>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col span={4}>
-                    <Row justify={"space-between"} align="middle">
-                        <Col span={5}>
-                            <div>233</div>
-                        </Col>
-                        <Col span={18}>
                             <Input
-                                placeholder="Basic usage"
-                                value={props.searchParams.name}
-                                onChange={(e) => props.changeSearchParams(e, "name")}
+                                placeholder="背夹类型"
+                                value={props.searchParams.device_type}
+                                onChange={(e) => props.changeSearchParams(e, "device_type")}
                             />
                         </Col>
                     </Row>
                 </Col>
+                <Col span={3}>
+
+                    <Button type="primary" style={{width:"70%"}} onClick={() => props.search(props.searchParams)}>新增用户</Button>
+                    {/*<CreateUser/>*/}
+
+                </Col>
 
             </Row>
+            <div style={{marginTop:"10px"}}/>
 
-            <Row justify="space-around">
-                <Col span={4}>
+            <Row justify="space-around" >
+                <Col span={5}>
                     <Row justify={"space-between"} align="middle">
                         <Col span={5}>
-                            <div>yuzhou</div>
+                            <div>用户ID</div>
                         </Col>
                         <Col span={18}>
-                            <Input placeholder="Basic usage"/>
+                            <Input
+                                onChange={(e) => props.changeSearchParams(e, "user_id")}
+                                placeholder="当前用户"/>
                         </Col>
                     </Row>
                 </Col>
-                <Col span={4}>
-                    <Row justify={"space-between"} align="middle">
-                        <Col span={5}>
-                            <div>电话</div>
+                <Col span={6}>
+                    <Row justify={"space-around"} align="middle">
+                        <Col span={6}>
+                            <div>创建时间</div>
                         </Col>
                         <Col span={18}>
-                            <Input placeholder="Basic usage"/>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col span={4}>
-                    <Row justify={"space-between"} align="middle">
-                        <Col span={5}>
-                            <div>状态</div>
-                        </Col>
-                        <Col span={18}>
-                            <Input placeholder="Basic usage"/>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col span={4}>
-                    <Row justify={"space-between"} align="middle">
-                        <Col span={5}>
-                            <div>类型</div>
-                        </Col>
-                        <Col span={18}>
-                            <Input placeholder="Basic usage"/>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col span={4}>
+                            <DatePicker
+                                placeholder="选择时间"
+                                style={{width:"100%"}}
+                                onChange={(e, value)=>props.changeDate("create_at", value)}
+                            />
 
-                    <Button type="primary" onClick={() => props.search(props.searchParams)}>搜索</Button>
+                        </Col>
+                    </Row>
+                </Col>
+                <Col span={5}>
+                    {/*<Row justify={"space-between"} align="middle">*/}
+                    {/*    <Col span={5}>*/}
+                    {/*        <div>状态</div>*/}
+                    {/*    </Col>*/}
+                    {/*    <Col span={18}>*/}
+                    {/*        <Input placeholder="Basic usage"/>*/}
+                    {/*    </Col>*/}
+                    {/*</Row>*/}
+                </Col>
+                <Col span={5}>
+                    {/*<Row justify={"space-between"} align="middle">*/}
+                    {/*    <Col span={5}>*/}
+                    {/*        <div>类型</div>*/}
+                    {/*    </Col>*/}
+                    {/*    <Col span={18}>*/}
+                    {/*        <Input placeholder="Basic usage"/>*/}
+                    {/*    </Col>*/}
+                    {/*</Row>*/}
+                </Col>
+                <Col span={3}>
+
+                    <Button type="primary" style={{width:"70%"}} onClick={() => props.search(props.searchParams)}>搜索</Button>
 
                 </Col>
 
@@ -343,5 +330,6 @@ const searchT = (props) => {
             <Divider/>
 
         </Fragment>
+
     )
 }

@@ -6,10 +6,10 @@ import {globalData} from "../../../../globaldata/globaldata";
 import * as notify from "../../../../component/noticefy";
 
 export const getWebDeviceList = (index, size,params)=>{
-    const url = globalData.baseURL + "/web/web_device/query?size=" + size + "&index=" + index
+    const url = globalData.baseURL + "/web/supplier/query?size=" + size + "&index=" + index
     return(dispatch)=>{
         axios.get(url, {
-            params:params,
+            params: params
         }).then(res=>{
             console.log(res)
             dispatch(changePagination(index, size, res.data.num))
@@ -34,7 +34,7 @@ export const changePagination = (index, size, total) => {
 
 export const changeWebDeviceList = (data)=>{
     return{
-        type:constants.CHANGE_WEB_DEVICE_LIST,
+        type:constants.CHANGE_SUPPLIER_LIST,
         value: data
     }
 }

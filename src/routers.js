@@ -6,6 +6,9 @@ import UserIndex from "./pages/home1/user/userIndex";
 import WebDeviceIndex from "./pages/home1/webdevice/deviceIndex";
 import WebDevice from "./pages/home1/webdevice";
 import HardDevice from "./pages/home1/harddevice";
+import SupplierIndex from "./pages/home1/supplier/router";
+import Supplier from "./pages/home1/supplier";
+import {UserOutlined} from "@ant-design/icons";
 
 
 const routes = [
@@ -24,6 +27,7 @@ const routes = [
             {
                 path: '/user',
                 title: "用户管理",
+                // icon: ,
                 component: UserIndex,
                 // exact: true,
                 children: [
@@ -72,6 +76,27 @@ const routes = [
 
                 ]
             },
+            {
+                path: '/supplier',
+                title: '供应商管理',
+                component: SupplierIndex,
+                children: [
+                    {
+                        path: "/supplier/list",
+                        title: "供应商列表",
+                        component: Supplier,
+                    },
+                    {
+                        path: "/supplier/product",
+                        title: "产品列表"
+                    },
+                    {
+                        path: "/supplier/sale",
+                        title: "交易记录"
+                    }
+                ]
+            },
+
         ]
     },
 

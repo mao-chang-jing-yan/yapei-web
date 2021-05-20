@@ -26,6 +26,7 @@ const defaultState = fromJS({
         // {key:"3",value:""},
     ],
     stateOption: [
+        {key: "-2", value: "所有用户"},
         {key: "-1", value: "不存在"},
         {key: "0", value: "已删除"},
         {key: "1", value: "正常"},

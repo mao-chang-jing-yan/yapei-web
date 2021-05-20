@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {actionCreators} from "./store";
 import CreateUser from "./createUser";
 import DownOutlined from "@ant-design/icons/lib/icons/DownOutlined";
+import {dateFormat} from "../../../component/dateFormat";
 
 export const DescriptionItem = ({title, content}) => (
     <div className="site-description-item-profile-wrapper">
@@ -198,8 +199,8 @@ const sensorTable = (props, data) => {
         {title: '传感器ID', dataIndex: 'device_id', fixed: "left", width: 160, key: '1'},
         {title: '类型', dataIndex: 'device_type', key: '5'},
         {title: '状态', dataIndex: 'device_state', key: '5'},
-        {title: '创建时间', dataIndex: 'create_at', key: '5'},
-        {title: '更新时间', dataIndex: 'update_at', key: '5'},
+        {title: '创建时间', key: '5',render: (e) => {return (<div>{dateFormat(e.create_at)}</div>)}},
+        {title: '更新时间', key: '5',render: (e) => {return (<div>{dateFormat(e.update_at)}</div>)}},
         {
             title: '操作', key: '5', render: (e) => {
                 return (
@@ -233,8 +234,8 @@ const hardDeviceTable = (props, data) => {
         {title: '硬件设备ID', dataIndex: 'device_id', fixed: "left", width: 160, key: '1'},
         {title: '类型', dataIndex: 'device_type', key: '5'},
         {title: '状态', dataIndex: 'device_state', key: '5'},
-        {title: '创建时间', dataIndex: 'create_at', key: '5'},
-        {title: '更新时间', dataIndex: 'update_at', key: '5'},
+        {title: '创建时间', key: '5',render: (e) => {return (<div>{dateFormat(e.create_at)}</div>)}},
+        {title: '更新时间', key: '5',render: (e) => {return (<div>{dateFormat(e.update_at)}</div>)}},
         {
             title: '操作', key: '5', render: (e) => {
                 return (
